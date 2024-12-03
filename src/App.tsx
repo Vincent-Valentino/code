@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
 
+function Home() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="bg-zinc-100 dark:bg-zinc-900 w-full h-full flex flex-col md:flex-row">
+      <div className="w-full dark:text-white md:w-44 h-20 md:h-screen md:mx-10 md:my-auto flex flex-row md:flex-col items-center suse justify-center gap-4 md:gap-4">
+        <div className="bakbak text-blue-800 text-5xl">
+          Coder
+        </div>
+        <button className="">
+          Dashboard
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        <button className="">
+          Activity
+        </button>
+        <button className="">
+          Course
+        </button>
+        <button className="">
+          About Us
+        </button>
+
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <div className="rounded-3xl bg-stone-50 dark:bg-neutral-950 shadow-md w-full md:mx-10 h-screen md:mr-10 md:my-10">
+        
+      </div>
+    </div>
   )
 }
 
-export default App
+export default Home

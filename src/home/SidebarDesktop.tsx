@@ -84,7 +84,7 @@ const SidebarDesktop: React.FC = () => {
 
         <div className="w-full border-[1px] dark:border-stone-100"></div>
 
-        {["WhatNew", "Contact", "About", "FAQ", "Pricing", "Blog"].map((itemName) => (
+        {["WhatNew", "Contact", "About", "FAQ", "Pricing", "Blog", "Community"].map((itemName) => (
           <button 
             key={itemName}
             onClick={() => setSection(itemName)} 

@@ -5,14 +5,35 @@ import Profile from "./profile/Profile"
 import FAQ from "./Faq"
 import Blog from "./Blog"
 import About from "./About"
+import YourPlan from "./activity/YourPlan"
+import OnGoing from "./activity/OnGoing"
+import History from "./activity/History"
+import AllCourses from "./course/AllCourses"
+import Go from "./course/Go"
+import Rust from "./course/Rust"
+import Typescript from "./course/Typescript"
+import WhatNew from "./WhatNew"
+import Contact from "./Contact"
+import Pricing from "./Pricing"
+import Community from "./Community"
 
 const SECTION_COMPONENTS: { [key: string]: React.FC } = {
   Dashboard,
+  YourPlan,
+  OnGoing,
+  History,
+  AllCourses,
+  Go,
+  Rust,
+  Typescript,
   Profile,
-  FAQ,
-  Blog,
+  WhatNew,
+  Contact,
   About,
-  // Add other section components as needed
+  FAQ,
+  Pricing,
+  Blog,
+  Community,
 }
 
 function Home() {

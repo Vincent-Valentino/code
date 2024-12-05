@@ -1,50 +1,31 @@
-# React + TypeScript + Vite
+# Coder - E-learning Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+Coder is an e-learning platform designed to help users learn coding interactively. The platform leverages modern web technologies and a robust backend to deliver a seamless learning experience.
 
-Currently, two official plugins are available:
+## Tools and Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Frontend
+- **React TypeScript**: For building the user interface.
+- **Vite**: For fast and efficient development.
+- **Framer**: For animations and interactions.
+- **Aceternity and MagicUI**: UI component libraries.
+- **Formik & Yup**: For form handling and validation.
+- **Zustand**: For state management.
+- **TanStack**: For advanced table and data grid functionalities.
 
-## Expanding the ESLint configuration
+### Backend
+- **Go**: For server-side logic and APIs.
+- **Redis & MongoDB**: For caching and database management.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
+- Interactive coding exercises.
+- Real-time collaboration.
+- Progress tracking and analytics.
+- Comprehensive course content.
 
-- Configure the top-level `parserOptions` property like this:
+## Project Structure
+The project is structured to separate concerns effectively, ensuring maintainability and scalability.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Getting Started
+To get started with Coder, clone the repository and follow the setup instructions in the README file.

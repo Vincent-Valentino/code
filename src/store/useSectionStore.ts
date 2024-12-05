@@ -1,7 +1,7 @@
 import { create } from "zustand"
 
 interface sectionStoreProps {
-	section: "string"
+	section: string
 	setSection: (section: string) => void 
 }
 

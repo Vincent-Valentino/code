@@ -7,7 +7,7 @@ import { ThemeContext } from "../context/ThemeContext.tsx"
 const SidebarDesktop: React.FC = () => {
   const [openSection, setOpenSection] = useState<string | null>(null)
   const {section, setSection} = useSectionStore()
-  const {theme} = useContext(ThemeContext)
+  const {theme, toggleTheme} = useContext(ThemeContext)
 
   const toggleSidebar = (section: string) => {
     setOpenSection((prev) => (prev === section ? null : section))
@@ -20,6 +20,7 @@ const SidebarDesktop: React.FC = () => {
         alt="Coder" 
         className="size-20 mb-4 ml-5 cursor-pointer transition-all duration-500 hover:scale-105"
       />
+      
       <div className="flex-col flex gap-3 items-start pl-4">
         <button onClick={() => setSection("Dashboard")} className={`transition-all duration-500 hover:scale-110 text-sm flex justify-center items-center ${section === "Dashboard" ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-400"}`}>
           <MdOutlineDashboardCustomize size={18}/>
@@ -95,6 +96,21 @@ const SidebarDesktop: React.FC = () => {
             {itemName === "WhatNew" ? "What New ?" : itemName}
           </button>
         ))}
+
+        {/* Theme switch at bottom */}
+        <div className="w-full border-[1px] dark:border-stone-100 mt-2"></div>
+        <div className="flex items-center justify-between w-full mt-4">
+          <span className="text-sm mr-4">Dark Mode</span>
+          <label className="relative inline-flex items-center cursor-pointer">
+            <input 
+              type="checkbox" 
+              checked={theme === 'dark'}
+              onChange={toggleTheme}
+              className="sr-only peer"
+            />
+            <div className="w-9 h-5 bg-gray-200 rounded-full peer dark:bg-neutral-700 peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-500"></div>
+          </label>
+        </div>
       </div>
     </div>
   )

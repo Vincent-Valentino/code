@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { FaSearch } from 'react-icons/fa' // Add this import for search icon
+import { FaSearch } from '../../../assets/Icons'
 
 const placeholders: string[] = [
   'Go',

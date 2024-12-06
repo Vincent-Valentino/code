@@ -34,7 +34,7 @@ export const CourseCard = ({ course, onUpdateProgress }: CourseCardProps) => {
             {course.completedSubCourses} of {course.totalSubCourses} completed
           </span>
           <button 
-            onClick={() => onUpdateProgress(course.id, { id: 'new', name: 'New Module' })}
+            onClick={() => onUpdateProgress(course.id, { id: 'new', title: 'New Module', isCompleted: false })}
             className="text-sm px-4 py-2 rounded-lg bg-gradient-to-r from-teal-500 to-blue-500 text-white hover:opacity-90 transition-opacity"
           >
             Continue

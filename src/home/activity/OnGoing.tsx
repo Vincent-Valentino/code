@@ -86,7 +86,7 @@ const CourseCard = ({ course }: { course: Course }) => {
     <div 
       className="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-lg cursor-pointer
         transition-all duration-300 hover:scale-[1.02] relative group overflow-hidden
-        min-h-[280px] flex flex-col justify-between"
+        h-[180px] flex flex-col justify-between"
       onClick={() => console.log(`Selected course: ${course.name}`)}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-blue-600/30 to-purple-600/30 
@@ -102,7 +102,7 @@ const CourseCard = ({ course }: { course: Course }) => {
             </span>
           </div>
         </div>
-        <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
+        <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-1 mb-4">
           {course.description}
         </p>
       </div>
@@ -115,7 +115,7 @@ const CourseCard = ({ course }: { course: Course }) => {
             {progressPercentage.toFixed(0)}%
           </span>
         </div>
-        <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-blue-200 mt-1">
+        <div className="overflow-hidden h-2 text-xs flex rounded bg-blue-200 mt-1">
           <div
             style={{ width: `${progressPercentage}%` }}
             className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-500"
@@ -188,12 +188,14 @@ const OnGoing = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="relative rounded-3xl bg-stone-50 dark:text-white dark:bg-neutral-950 w-full md:mr-10 md:my-10 p-6"
+      className="relative rounded-3xl bg-stone-50 dark:text-white dark:bg-neutral-950 w-full md:mr-10 h-[600px] md:my-10 p-6 overflow-hidden"
     >
       <div className="absolute w-[500px] h-[300px] top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-400 to-orange-500 opacity-30 blur-3xl rounded-full" />
-      <div className="relative z-10">
-        <CourseSection title="Ongoing Courses" courses={ongoingCourses} />
-        <CourseSection title="Completed Courses" courses={completedCourses} />
+      <div className="relative z-10 h-full overflow-y-auto scrollbar-thin scrollbar-thumb-amber-500 scrollbar-track-gray-200 dark:scrollbar-track-neutral-800 pr-2">
+        <div className="max-w-5xl mx-auto">
+          <CourseSection title="Ongoing Courses" courses={ongoingCourses} />
+          <CourseSection title="Completed Courses" courses={completedCourses} />
+        </div>
       </div>
     </motion.div>
   )

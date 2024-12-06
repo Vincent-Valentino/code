@@ -9,7 +9,11 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
-          "pop-blob": {
+        "marquee": {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+        "pop-blob": {
           "0%": { transform: "scale(1)" },
           "33%": { transform: "scale(1.2)" },
           "66%": { transform: "scale(0.8)" },
@@ -17,13 +21,14 @@ module.exports = {
         },
         colors: {
           filter: {
-         "blur-20": "blur(20px)",
-         "blur-25": "blur(25px)",
+            "blur-20": "blur(20px)",
+            "blur-25": "blur(25px)",
           },
         },
+      },
       animation: {
         "pop-blob": "pop-blob 5s infinite",
-        }
+        "marquee": 'marquee 40s linear infinite',
       },
     },
   },

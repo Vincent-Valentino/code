@@ -12,7 +12,7 @@ import * as Yup from 'yup'
 import { UserProfile } from '../../types/profile'
 
 const Profile: React.FC = () => {
-  const [isAuthenticated] = useState(true)
+  const [isAuthenticated] = useState(false)
   const [showAchievements, setShowAchievements] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
 

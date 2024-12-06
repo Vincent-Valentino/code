@@ -113,10 +113,10 @@ const History = () => {
         <h1 className="text-2xl font-bold">History</h1>
       </div>
       
-      <div className="relative z-10 space-y-4 h-[calc(100%-4rem)] overflow-y-auto scrollbar-thin scrollbar-thumb-purple-500 scrollbar-track-gray-200 dark:scrollbar-track-neutral-800 pr-2">
+      <div className="relative z-10 space-y-4 h-[calc(100%-4rem)] overflow-y-auto scrollbar-thin scrollbar-thumb-purple-500 scrollbar-track-transparent pr-2">
         {history.map((item) => (
           <div key={item.id} 
-               className="flex items-center justify-between p-4 rounded-lg bg-white dark:bg-neutral-900 shadow-sm hover:shadow-md transition-all duration-200 hover:scale-[1.01] cursor-pointer"
+               className="flex items-center justify-between p-4 rounded-lg bg-white/10 dark:bg-neutral-900/10 backdrop-blur-md border border-white/20 dark:border-neutral-800/20 shadow-sm hover:shadow-md transition-all duration-200 hover:scale-[1.01] cursor-pointer"
           >
             <div className="flex-1">
               <div className="flex items-center justify-between">

@@ -98,9 +98,9 @@ const SidebarDesktop: React.FC = () => {
         ))}
 
         {/* Theme switch at bottom */}
-        <div className="w-full border-[1px] dark:border-stone-100 mt-2"></div>
+        <div className="w-full border-[1px] border-stone-300 dark:border-stone-100 mt-2"></div>
         <div className="flex items-center justify-between w-full mt-4">
-          <span className="text-sm mr-4">Dark Mode</span>
+          <span className="text-sm mr-4 text-stone-700 dark:text-stone-400">Dark Mode</span>
           <label className="relative inline-flex items-center cursor-pointer">
             <input 
               type="checkbox" 
@@ -108,7 +108,7 @@ const SidebarDesktop: React.FC = () => {
               onChange={toggleTheme}
               className="sr-only peer"
             />
-            <div className="w-9 h-5 bg-gray-200 rounded-full peer dark:bg-neutral-700 peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-500"></div>
+            <div className="w-9 h-5 bg-stone-500 rounded-full peer dark:bg-neutral-700 peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-500"></div>
           </label>
         </div>
       </div>

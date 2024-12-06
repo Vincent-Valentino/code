@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 
 interface CourseGridProps {
   activeTab: string;
+  className?: string;
 }
 
 const CourseGrid = ({ activeTab }: CourseGridProps): JSX.Element => {

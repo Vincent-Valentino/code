@@ -19,9 +19,9 @@ const Dashboard = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="relative rounded-3xl bg-stone-50 dark:text-white dark:bg-neutral-950 w-full md:mr-10 max-h-full md:my-10 p-6"
+      className="relative rounded-3xl bg-white dark:text-white dark:bg-neutral-950 w-full md:mr-10 max-h-full md:my-10 p-6 shadow-md"
     >
-      <div className="absolute w-[500px] h-[300px] top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-400 to-purple-500 opacity-30 blur-3xl rounded-full"></div>
+      <div className="absolute w-[500px] h-[300px] top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-400 to-purple-500 opacity-20 dark:opacity-30 blur-3xl rounded-full"></div>
       <div className="relative z-10 flex items-center gap-3 mb-6">
         <MdOutlineDashboardCustomize size={24} className="text-blue-800" />
         <h1 className="text-2xl font-bold">Dashboard</h1>
@@ -29,8 +29,8 @@ const Dashboard = () => {
 
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
         {['Courses', 'Progress', 'Achievements'].map((stat) => (
-          <div key={stat} className="bg-white dark:bg-neutral-900 bg-opacity-60 dark:bg-opacity-60 p-4 rounded-xl shadow-sm backdrop-blur-md">
-            <h3 className="text-gray-600 dark:text-gray-400 mb-2">{stat}</h3>
+          <div key={stat} className="bg-stone-50 dark:bg-neutral-900/10 backdrop-blur-md border border-stone-200 dark:border-neutral-800/20 p-4 rounded-xl shadow-sm">
+            <h3 className="text-stone-600 dark:text-gray-400 mb-2">{stat}</h3>
             <p className="text-2xl font-bold">0</p>
           </div>
         ))}
@@ -39,7 +39,7 @@ const Dashboard = () => {
         <motion.button 
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="relative z-10 bg-white dark:bg-neutral-900 bg-opacity-60 dark:bg-opacity-60 rounded-xl p-4 backdrop-blur-md overflow-hidden group cursor-pointer"
+          className="relative z-10 bg-stone-50 dark:bg-neutral-900/10 backdrop-blur-md border border-stone-200 dark:border-neutral-800/20 rounded-xl p-4 overflow-hidden group cursor-pointer shadow-sm"
           onClick={() => { /* Add navigation logic */ }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -58,7 +58,7 @@ const Dashboard = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-white dark:bg-neutral-900 bg-opacity-60 dark:bg-opacity-60 rounded-xl p-4 overflow-hidden relative group cursor-pointer"
+            className="bg-stone-50 dark:bg-neutral-900/10 backdrop-blur-md border border-stone-200 dark:border-neutral-800/20 rounded-xl p-4 overflow-hidden relative group cursor-pointer shadow-sm"
             onClick={() => { /* Add navigation logic */ }}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -72,7 +72,7 @@ const Dashboard = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-white dark:bg-neutral-900 bg-opacity-60 dark:bg-opacity-60 rounded-xl p-4 overflow-hidden relative group cursor-pointer"
+            className="bg-stone-50 dark:bg-neutral-900/10 backdrop-blur-md border border-stone-200 dark:border-neutral-800/20 rounded-xl p-4 overflow-hidden relative group cursor-pointer shadow-sm"
             onClick={() => { /* Navigate to Plan */ }}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -84,7 +84,7 @@ const Dashboard = () => {
           </motion.button>
 
           <motion.div
-            className="col-span-2 bg-white dark:bg-neutral-900 bg-opacity-60 dark:bg-opacity-60 rounded-xl p-4"
+            className="col-span-2 bg-stone-50 dark:bg-neutral-900/10 backdrop-blur-md border border-stone-200 dark:border-neutral-800/20 rounded-xl p-4 shadow-sm"
             whileHover={{ scale: 1.02 }}
           >
             <h3 className="text-sm font-medium mb-4">Weekly Activity</h3>
@@ -101,7 +101,7 @@ const Dashboard = () => {
             </div>
           </motion.div>
         </div>
-        <div className='flex flex-col justify-center items-center bg-white dark:bg-neutral-900 bg-opacity-60 dark:bg-opacity-60 rounded-xl p-6 text-center'>
+        <div className='flex flex-col justify-center items-center bg-stone-50 dark:bg-neutral-900/10 backdrop-blur-md border border-stone-200 dark:border-neutral-800/20 rounded-xl p-6 text-center shadow-sm'>
           <h1 className="text-2xl font-bold mb-3">Welcome to Coder!</h1>
           <p className="text-gray-600 dark:text-gray-400 mb-4">Start your coding journey today</p>
           <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors">

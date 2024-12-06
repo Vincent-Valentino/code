@@ -6,6 +6,7 @@ import CourseGrid from './components/CourseGrid'
 
 const AllCourses = (): JSX.Element => {
   const [activeTab, setActiveTab] = useState<string>('General')
+  const glassmorphismClass = "bg-white/10 dark:bg-neutral-900/10 backdrop-blur-md border border-white/20 dark:border-neutral-800/20"
 
   return (
     <motion.div 
@@ -18,9 +19,16 @@ const AllCourses = (): JSX.Element => {
       
       <div className="relative z-10 flex flex-col gap-6">
         <h1 className="text-2xl font-bold">All Courses</h1>
-        <SearchBar />
-        <CourseTabs activeTab={activeTab} setActiveTab={setActiveTab} />
-        <CourseGrid activeTab={activeTab} />
+        <SearchBar className={glassmorphismClass} />
+        <CourseTabs 
+          activeTab={activeTab} 
+          setActiveTab={setActiveTab}
+          className={glassmorphismClass} 
+        />
+        <CourseGrid 
+          activeTab={activeTab}
+          className={glassmorphismClass}
+        />
       </div>
     </motion.div>
   )

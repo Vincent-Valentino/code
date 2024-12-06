@@ -10,7 +10,11 @@ const placeholders: string[] = [
   'React'
 ]
 
-const SearchBar = (): JSX.Element => {
+interface SearchBarProps {
+  className?: string;
+}
+
+const SearchBar = ({ className = '' }: SearchBarProps): JSX.Element => {
   const [currentPlaceholder, setCurrentPlaceholder] = useState<string>('')
   const [isFocused, setIsFocused] = useState<boolean>(false)
 
@@ -38,7 +42,7 @@ const SearchBar = (): JSX.Element => {
 
   return (
     <motion.div 
-      className="w-full max-w-2xl"
+      className={`w-full max-w-2xl rounded-xl p-2 ${className}`}
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}

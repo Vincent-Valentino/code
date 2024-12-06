@@ -84,7 +84,7 @@ const CourseCard = ({ course }: { course: Course }) => {
 
   return (
     <div 
-      className="bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-lg cursor-pointer
+      className="bg-white/10 dark:bg-neutral-900/10 backdrop-blur-md border border-white/20 dark:border-neutral-800/20 p-6 rounded-xl shadow-lg cursor-pointer
         transition-all duration-300 hover:scale-[1.02] relative group overflow-hidden
         h-[180px] flex flex-col justify-between"
       onClick={() => console.log(`Selected course: ${course.name}`)}

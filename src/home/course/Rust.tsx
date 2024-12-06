@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion'
-import { DiRust, SiDiscord, SiMozilla, SiDropbox, BsBook } from '../../assets/Icons'
+import { DiRust, SiDiscord, SiMozilla, SiDropbox, SiAmazon, SiCloudflare, BsBook } from '../../assets/Icons'
 
 const Rust = () => {
   const companies = [
     { 
       icon: SiDiscord,
       name: 'Discord',
-      usage: 'Read states and message handling optimization'
+      usage: 'Read states and message handling'
     },
     { 
       icon: SiMozilla,
@@ -17,6 +17,16 @@ const Rust = () => {
       icon: SiDropbox,
       name: 'Dropbox',
       usage: 'File sync engine optimization'
+    },
+    {
+      icon: SiAmazon,
+      name: 'Amazon',
+      usage: 'Cloud infrastructure services'
+    },
+    {
+      icon: SiCloudflare,
+      name: 'Cloudflare',
+      usage: 'Network security and performance'
     }
   ]
 

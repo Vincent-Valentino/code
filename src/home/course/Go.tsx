@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { DiGo, SiGooglechrome, SiUber, SiTwitch, SiDocker, SiKubernetes } from '../../assets/Icons'
+import { DiGo, SiGooglechrome, SiUber, SiTwitch, SiDocker, SiKubernetes, SiCloudflare } from '../../assets/Icons'
 import { BsBook } from 'react-icons/bs'
 
 const Go = () => {
@@ -7,23 +7,28 @@ const Go = () => {
     { 
       icon: SiGooglechrome, 
       name: 'Google', 
-      usage: 'Core infrastructure, cloud services, and developer tools'
+      usage: 'Core infrastructure and cloud services'
     },
     { 
       icon: SiUber, 
       name: 'Uber', 
-      usage: 'Geofence service and real-time location management'
+      usage: 'Geofence service and location management'
     },
     { 
       icon: SiTwitch, 
       name: 'Twitch', 
-      usage: 'Video processing and real-time streaming services'
+      usage: 'Video processing and streaming services'
     },
     { 
       icon: SiDocker, 
       name: 'Docker', 
       usage: 'Container runtime and build tools'
     },
+    { 
+      icon: SiCloudflare, 
+      name: 'Cloudflare', 
+      usage: 'Edge computing and network services'
+    }
   ]
 
   const courses = [

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { SiTypescript, SiMeta, SiSlack, SiVercel, SiShopify, BsBook } from '../../assets/Icons'
+import { SiTypescript, SiMeta, SiSlack, SiVercel, SiShopify, SiAmazon, BsBook } from '../../assets/Icons'
 
 const Typescript = () => {
   const companies = [
@@ -22,6 +22,11 @@ const Typescript = () => {
       icon: SiShopify,
       name: 'Shopify',
       usage: 'E-commerce platforms and tools'
+    },
+    {
+      icon: SiAmazon,
+      name: 'Amazon',
+      usage: 'AWS Console and web services'
     }
   ]
 

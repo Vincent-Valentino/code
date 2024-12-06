@@ -1,35 +1,30 @@
 import { motion } from 'framer-motion'
 
 interface CourseTabsProps {
+  categories: string[];
   activeTab: string;
   setActiveTab: (tab: string) => void;
   className?: string;
 }
 
-const tabs: string[] = ['General', 'Frontend', 'Backend', 'Mobile', 'Database']
-
-const CourseTabs = ({ activeTab, setActiveTab, className = '' }: CourseTabsProps): JSX.Element => {
+const CourseTabs = ({ categories, activeTab, setActiveTab, className = '' }: CourseTabsProps): JSX.Element => {
   return (
-    <div className={`rounded-xl p-1 ${className}`}>
-      <div className="flex gap-2">
-        {tabs.map(tab => (
-          <motion.button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className={`px-4 py-2 rounded-lg transition-all ${
-              activeTab === tab 
-                ? 'bg-white/20 dark:bg-neutral-800/20' 
-                : 'hover:bg-white/10 dark:hover:bg-neutral-800/10'
-            }`}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {tab}
-          </motion.button>
-        ))}
-      </div>
+    <div className={`flex gap-4 p-2 rounded-xl overflow-x-auto ${className}`}>
+      {categories.map((category) => (
+        <button
+          key={category}
+          onClick={() => setActiveTab(category)}
+          className={`px-4 py-2 rounded-lg transition-colors ${
+            activeTab === category
+              ? 'bg-white/20 dark:bg-neutral-800/20'
+              : 'hover:bg-white/10 dark:hover:bg-neutral-800/10'
+          }`}
+        >
+          {category}
+        </button>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default CourseTabs
+export default CourseTabs;

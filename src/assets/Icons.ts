@@ -1,39 +1,108 @@
+import { DiGo, DiReact, DiNodejs, DiPython, DiJava, DiRust } from "react-icons/di";
+import { 
+  SiTypescript, 
+  SiDocker, 
+  SiKubernetes,
+  SiGooglecloud,
+  SiFlutter,
+  SiMongodb,
+  SiRedis,
+  SiFirebase,
+  SiGraphql,
+  SiVuedotjs,
+  SiAngular,
+  SiSwift,
+  SiKotlin,
+  SiPostgresql,
+  SiRust,
+  SiMeta,
+  SiSlack,
+  SiVercel,
+  SiShopify,
+  SiAmazon,
+  SiDiscord,
+  SiMozilla,
+  SiDropbox,
+  SiCloudflare,
+  SiGooglechrome,
+  SiUber,
+  SiTwitch,
+  SiJavascript,
+  SiPython
+} from "react-icons/si";
+import { FaSearch, FaGithub, FaTwitter, FaLinkedin, FaDiscord, FaPhone, FaEnvelope, FaCode } from "react-icons/fa";
+import { BsGrid, BsBook, BsSpeedometer, BsCodeSquare } from "react-icons/bs";
+import { HiLocationMarker } from "react-icons/hi";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { LuSquareActivity } from "react-icons/lu";
-import { FaCode, FaSearch } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
-import { DiGo, DiRust, DiReact, DiNodejs } from "react-icons/di";
-import { SiTypescript, SiJavascript, SiPython, SiGooglechrome, SiUber, SiTwitch, SiDocker, SiKubernetes } from "react-icons/si";
-import { BsBook, BsGrid } from "react-icons/bs";
-import { SiDiscord, SiMozilla, SiDropbox, SiAmazon, SiMeta, SiSlack, SiVercel, SiShopify, SiCloudflare } from "react-icons/si";
 
+// Export all icons
 export {
-    MdOutlineDashboardCustomize,
-    LuSquareActivity,
-    FaCode,
-    FaSearch,
-    CgProfile,
-    DiGo,
-    DiRust,
-    DiReact,
-    DiNodejs,
-    SiTypescript,
-    SiJavascript,
-    SiPython,
-    SiGooglechrome,
-    SiUber,
-    SiTwitch,
-    SiDocker,
-    SiKubernetes,
-    BsBook,
-    BsGrid,
-    SiDiscord,
-    SiMozilla,
-    SiDropbox,
-    SiAmazon,
-    SiMeta,
-    SiSlack,
-    SiVercel,
-    SiShopify,
-    SiCloudflare
-}
+  // Dev Icons
+  DiGo,
+  DiReact,
+  DiNodejs,
+  DiPython,
+  DiJava,
+  DiRust,
+  
+  // Simple Icons
+  SiTypescript,
+  SiDocker,
+  SiKubernetes,
+  SiGooglecloud,
+  SiFlutter,
+  SiMongodb,
+  SiRedis,
+  SiFirebase,
+  SiGraphql,
+  SiVuedotjs,
+  SiAngular,
+  SiSwift,
+  SiKotlin,
+  SiPostgresql,
+  SiRust,
+  SiMeta,
+  SiSlack,
+  SiVercel,
+  SiShopify,
+  SiAmazon,
+  SiDiscord,
+  SiMozilla,
+  SiDropbox,
+  SiCloudflare,
+  SiGooglechrome,
+  SiUber,
+  SiTwitch,
+  SiJavascript,
+  SiPython,
+  
+  // Font Awesome Icons
+  FaSearch,
+  FaGithub,
+  FaTwitter,
+  FaLinkedin,
+  FaDiscord,
+  FaPhone,
+  FaEnvelope,
+  
+  // Bootstrap Icons
+  BsGrid,
+  BsBook,
+  BsSpeedometer,
+  BsCodeSquare,
+  
+  // Hero Icons
+  HiLocationMarker,
+  
+  // Material Design Icons
+  MdOutlineDashboardCustomize,
+  
+  // Lucide Icons
+  LuSquareActivity,
+  
+  // Custom Icons
+  FaCode,
+  CgProfile
+};

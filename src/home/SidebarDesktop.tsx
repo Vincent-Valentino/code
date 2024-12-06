@@ -1,20 +1,26 @@
 import { useState, useContext } from "react"
 import { motion } from 'framer-motion'
 import { MdOutlineDashboardCustomize, LuSquareActivity, FaCode, CgProfile } from "../assets/Icons.ts"
-import { useSectionStore } from "../store/useSectionStore"
 import { ThemeContext } from "../context/ThemeContext.tsx"
+import { useNavigate } from 'react-router-dom'
 
 const SidebarDesktop: React.FC = () => {
   const [openSection, setOpenSection] = useState<string | null>(null)
-  const {section, setSection} = useSectionStore()
+  const [activeSection, setActiveSection] = useState("Dashboard")
   const {theme, toggleTheme} = useContext(ThemeContext)
+  const navigate = useNavigate()
 
   const toggleSidebar = (section: string) => {
     setOpenSection((prev) => (prev === section ? null : section))
   };
 
+  const handleNavigation = (path: string, sectionName: string = "Dashboard") => {
+    setActiveSection(sectionName)
+    navigate(path)
+  }
+
   return(
-    <div className="hidden md:flex w-full dark:text-stone-400 md:w-44 h-20 md:h-full md:mx-10 md:my-auto flex-row md:flex-col items-start suse pt-12 gap-4 md:gap-4">
+    <div className="hidden md:flex w-full dark:text-stone-300 md:w-44 h-20 md:h-full md:mx-10 md:my-auto flex-row md:flex-col items-start suse pt-12 gap-4 md:gap-4">
       <img 
         src={theme === "dark" ? "/logo/white_on_trans.png" : "/logo/trans_bg.png"} 
         alt="Coder" 
@@ -22,11 +28,11 @@ const SidebarDesktop: React.FC = () => {
       />
       
       <div className="flex-col flex gap-3 items-start pl-4">
-        <button onClick={() => setSection("Dashboard")} className={`transition-all duration-500 hover:scale-110 text-sm flex justify-center items-center ${section === "Dashboard" ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-400"}`}>
+        <button onClick={() => handleNavigation("/", "Dashboard")} className={`transition-all duration-500 hover:scale-110 text-sm flex justify-center items-center ${activeSection === "Dashboard" ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-300"}`}>
           <MdOutlineDashboardCustomize size={18}/>
           <p className="ml-1">Dashboard</p>
         </button>
-        <button onClick={() => toggleSidebar("Activity")} className="transition-all duration-500 hover:scale-110 text-sm flex justify-center items-center text-black dark:text-stone-400">
+        <button onClick={() => toggleSidebar("Activity")} className="transition-all duration-500 hover:scale-110 text-sm flex justify-center items-center text-black dark:text-stone-300">
           <LuSquareActivity size={18}/>
           <p className="ml-1">Activity</p>
         </button>
@@ -39,19 +45,19 @@ const SidebarDesktop: React.FC = () => {
             transition={{ duration: 0.5, ease: "linear" }}
             className="flex flex-col gap-2 items-start justify-start pb-2 pl-2"
           >
-            <button onClick={() => setSection("YourPlan")} className={`transition-all duration-500 hover:scale-110 text-xs flex justify-center items-center ${section === "YourPlan" ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-400"}`}>
+            <button onClick={() => handleNavigation("/activity/plan", "YourPlan")} className={`transition-all duration-500 hover:scale-110 text-xs flex justify-center items-center ${activeSection === "YourPlan" ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-300"}`}>
               Your Plan
             </button>
-            <button onClick={() => setSection("OnGoing")} className={`transition-all duration-500 hover:scale-110 text-xs flex justify-center items-center ${section === "OnGoing" ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-400"}`}>
+            <button onClick={() => handleNavigation("/activity/ongoing", "Ongoing")} className={`transition-all duration-500 hover:scale-110 text-xs flex justify-center items-center ${activeSection === "Ongoing" ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-300"}`}>
               onGoing
             </button>
-            <button onClick={() => setSection("History")} className={`transition-all duration-500 hover:scale-110 text-xs flex justify-center items-center ${section === "History" ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-400"}`}>
+            <button onClick={() => handleNavigation("/activity/history", "History")} className={`transition-all duration-500 hover:scale-110 text-xs flex justify-center items-center ${activeSection === "History" ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-300"}`}>
               History
             </button>
           </motion.div>
         )}
 
-        <button onClick={() => toggleSidebar("Course")} className="transition-all duration-500 hover:scale-110 text-sm flex justify-center items-center text-black dark:text-stone-400">
+        <button onClick={() => toggleSidebar("Course")} className="transition-all duration-500 hover:scale-110 text-sm flex justify-center items-center text-black dark:text-stone-300">
           <FaCode size={18}/>
           <p className="ml-1">Course</p>
         </button>
@@ -67,9 +73,9 @@ const SidebarDesktop: React.FC = () => {
             {["AllCourses", "Go", "Rust", "Typescript"].map((courseName) => (
               <button 
                 key={courseName}
-                onClick={() => setSection(courseName)} 
+                onClick={() => handleNavigation(`/course/${courseName.toLowerCase()}`, courseName)} 
                 className={`transition-all duration-500 hover:scale-110 text-xs flex justify-center items-center ${
-                  section === courseName ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-400"
+                  activeSection === courseName ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-300"
                 }`}
               >
                 {courseName === "AllCourses" ? "All Courses" : courseName}
@@ -78,7 +84,7 @@ const SidebarDesktop: React.FC = () => {
           </motion.div>
         )}
 
-        <button onClick={() => setSection("Profile")} className={`transition-all duration-500 hover:scale-110 text-sm flex justify-center items-center ${section === "Profile" ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-400"}`}>
+        <button onClick={() => handleNavigation("/profile", "Profile")} className={`transition-all duration-500 hover:scale-110 text-sm flex justify-center items-center ${activeSection === "Profile" ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-300"}`}>
           <CgProfile size={18}/>
           <p className="ml-1">Profile</p>
         </button>
@@ -88,9 +94,9 @@ const SidebarDesktop: React.FC = () => {
         {["WhatNew", "Contact", "About", "FAQ", "Pricing", "Blog", "Community"].map((itemName) => (
           <button 
             key={itemName}
-            onClick={() => setSection(itemName)} 
+            onClick={() => handleNavigation(`/${itemName.toLowerCase()}`, itemName)} 
             className={`transition-all duration-500 hover:scale-110 text-xs flex justify-center items-center ${
-              section === itemName ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-400"
+              activeSection === itemName ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-300"
             }`}
           >
             {itemName === "WhatNew" ? "What New ?" : itemName}
@@ -100,7 +106,7 @@ const SidebarDesktop: React.FC = () => {
         {/* Theme switch at bottom */}
         <div className="w-full border-[1px] border-stone-300 dark:border-stone-100 mt-2"></div>
         <div className="flex items-center justify-between w-full mt-4">
-          <span className="text-sm mr-4 text-stone-700 dark:text-stone-400">Dark Mode</span>
+          <span className="text-sm mr-4 text-stone-700 dark:text-stone-300">Dark Mode</span>
           <label className="relative inline-flex items-center cursor-pointer">
             <input 
               type="checkbox" 

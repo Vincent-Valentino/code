@@ -5,6 +5,7 @@ import { CgProfile } from "react-icons/cg";
 import { DiGo, DiRust, DiReact, DiNodejs } from "react-icons/di";
 import { SiTypescript, SiJavascript, SiPython, SiGooglechrome, SiUber, SiTwitch, SiDocker, SiKubernetes } from "react-icons/si";
 import { BsBook, BsGrid } from "react-icons/bs";
+import { SiDiscord, SiMozilla, SiDropbox, SiAmazon, SiMeta, SiSlack, SiVercel, SiShopify } from "react-icons/si";
 
 export {
     MdOutlineDashboardCustomize,
@@ -25,5 +26,13 @@ export {
     SiDocker,
     SiKubernetes,
     BsBook,
-    BsGrid
+    BsGrid,
+    SiDiscord,
+    SiMozilla,
+    SiDropbox,
+    SiAmazon,
+    SiMeta,
+    SiSlack,
+    SiVercel,
+    SiShopify
 }

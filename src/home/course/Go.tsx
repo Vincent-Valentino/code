@@ -163,6 +163,30 @@ const Go = () => {
             </div>
           </div>
         </section>
+
+        <section className="space-y-4">
+          <h2 className="text-xl font-semibold">Programming Use Cases & Comparison</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div className="bg-white/10 dark:bg-neutral-900/10 backdrop-blur-md border border-white/20 dark:border-neutral-800/20 p-5 rounded-xl">
+              <h3 className="font-semibold mb-2">Advantages over Java/C++</h3>
+              <ul className="list-disc pl-4 text-sm text-gray-600 dark:text-gray-400 space-y-2">
+                <li>Simple and clean syntax</li>
+                <li>Built-in concurrency with goroutines</li>
+                <li>Fast compilation and efficient garbage collection</li>
+                <li>Comprehensive standard library</li>
+              </ul>
+            </div>
+            <div className="bg-white/10 dark:bg-neutral-900/10 backdrop-blur-md border border-white/20 dark:border-neutral-800/20 p-5 rounded-xl">
+              <h3 className="font-semibold mb-2">Best Used For</h3>
+              <ul className="list-disc pl-4 text-sm text-gray-600 dark:text-gray-400 space-y-2">
+                <li>Cloud and Network Services</li>
+                <li>DevOps and CLI Tools</li>
+                <li>System Programming</li>
+                <li>Distributed Systems</li>
+              </ul>
+            </div>
+          </div>
+        </section>
       </div>
     </motion.div>
   )

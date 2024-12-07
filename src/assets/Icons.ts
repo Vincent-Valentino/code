@@ -36,6 +36,7 @@ import { HiLocationMarker } from "react-icons/hi";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { LuSquareActivity } from "react-icons/lu";
 import { CgProfile } from "react-icons/cg";
+import { GoFileDirectory, GoFileDirectoryFill, GoFile } from "react-icons/go";
 
 // Export all icons
 export {
@@ -106,3 +107,7 @@ export {
   FaCode,
   CgProfile
 };
+
+export const FolderIcon = GoFileDirectory;
+export const FolderOpenIcon = GoFileDirectoryFill;
+export const FileIcon = GoFile;

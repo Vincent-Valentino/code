@@ -16,6 +16,7 @@ import Typescript from "./home/course/Typescript"
 import WhatNew from "./home/WhatNew"
 import Contact from "./home/Contact"
 import Community from "./home/Community"
+import Example from './education/components/MarkdownRenderer'
 
 export const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
       {
         path: "community",
         element: <Community />,
+      },
+      {
+        path: "example",
+        element: <Example />,
       },
     ]
   },

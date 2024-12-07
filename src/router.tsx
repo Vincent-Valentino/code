@@ -5,7 +5,6 @@ import ErrorPage from "./components/ErrorPage"
 import Dashboard from "./home/dashboard/Dashboard"
 import Profile from "./home/profile/Profile"
 import FAQ from "./home/Faq"
-import Blog from "./home/Blog"
 import About from "./home/About"
 import YourPlan from "./home/activity/YourPlan"
 import OnGoing from "./home/activity/OnGoing"
@@ -16,7 +15,6 @@ import Rust from "./home/course/Rust"
 import Typescript from "./home/course/Typescript"
 import WhatNew from "./home/WhatNew"
 import Contact from "./home/Contact"
-import Pricing from "./home/Pricing"
 import Community from "./home/Community"
 
 export const router = createBrowserRouter([
@@ -65,14 +63,6 @@ export const router = createBrowserRouter([
       {
         path: "faq",
         element: <FAQ />,
-      },
-      {
-        path: "pricing",
-        element: <Pricing />,
-      },
-      {
-        path: "blog",
-        element: <Blog />,
       },
       {
         path: "community",

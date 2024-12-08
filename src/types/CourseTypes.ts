@@ -1,9 +1,15 @@
-
 export type CourseDifficulty = 'Beginner' | 'Intermediate' | 'Advanced';
+
+export interface CourseMetadata {
+  author: string;
+  publishedAt: Date;
+}
 
 export interface SubCourse {
   id: string;
   title: string;
+  description: string;
+  totalViews: number;
   isCompleted: boolean;
   notes?: string;
 }
@@ -17,28 +23,9 @@ export interface Course {
   subCourses: SubCourse[];
   totalSubCourses: number;
   completedSubCourses: number;
+  category: string[];
+  tags: string[];
+  numberOfCourses: number;
+  totalViews: number;
+  metadata: CourseMetadata;
 }
-
-export const MOCK_COURSES: Course[] = [
-  {
-    id: 'go-basics',
-    title: 'Go: The Basics',
-    description: 'Learn the fundamentals of Go programming language, including syntax, types, and basic concurrency.',
-    difficulty: 'Beginner',
-    color: 'bg-cyan-500',
-    totalSubCourses: 8,
-    completedSubCourses: 0,
-    subCourses: []
-  },
-  {
-    id: 'go-threads',
-    title: 'Go: Mastering Multi-Threaded',
-    description: 'Advanced concurrency patterns, goroutines, channels, and real-world applications.',
-    difficulty: 'Advanced',
-    color: 'bg-cyan-700',
-    totalSubCourses: 12,
-    completedSubCourses: 0,
-    subCourses: []
-  },
-  // ...add other courses with similar structure
-];

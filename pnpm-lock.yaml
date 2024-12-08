@@ -11,12 +11,18 @@ importers:
       '@radix-ui/react-hover-card':
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tanstack/react-query':
+        specifier: ^5.62.3
+        version: 5.62.3(react@18.3.1)
       '@types/swiper':
         specifier: ^6.0.0
         version: 6.0.0
       '@typescript-eslint/parser':
         specifier: ^8.17.0
         version: 8.17.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.6.3)
+      axios:
+        specifier: ^1.7.9
+        version: 1.7.9
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -81,6 +87,9 @@ importers:
       '@eslint/js':
         specifier: ^9.16.0
         version: 9.16.0
+      '@tanstack/react-query-devtools':
+        specifier: ^5.62.3
+        version: 5.62.3(@tanstack/react-query@5.62.3(react@18.3.1))(react@18.3.1)
       '@types/react':
         specifier: ^18.3.12
         version: 18.3.12
@@ -764,6 +773,23 @@ packages:
   '@tanstack/query-core@5.62.1':
     resolution: {integrity: sha512-thYv90GkMcfumgmtp6sptC18SqxWwXTCKUuk7jyeHHn7kYouh0VJrowuuBffAIBiR3Z8OnsccmPUnP1leKJBVQ==}
 
+  '@tanstack/query-core@5.62.3':
+    resolution: {integrity: sha512-Jp/nYoz8cnO7kqhOlSv8ke/0MJRJVGuZ0P/JO9KQ+f45mpN90hrerzavyTKeSoT/pOzeoOUkv1Xd0wPsxAWXfg==}
+
+  '@tanstack/query-devtools@5.61.4':
+    resolution: {integrity: sha512-21Tw+u8E3IJJj4A/Bct4H0uBaDTEu7zBrR79FeSyY+mS2gx5/m316oDtJiKkILc819VSTYt+sFzODoJNcpPqZQ==}
+
+  '@tanstack/react-query-devtools@5.62.3':
+    resolution: {integrity: sha512-4iaQap/iP5ErS094u1WehFntHtjRo6g5HJMvyHovBVbsxnvgPc6AtKAw7qxPPoKy6Wj5Bew0045eYP5phiiBmw==}
+    peerDependencies:
+      '@tanstack/react-query': ^5.62.3
+      react: ^18 || ^19
+
+  '@tanstack/react-query@5.62.3':
+    resolution: {integrity: sha512-y2zDNKuhgiuMgsKkqd4AcsLIBiCfEO8U11AdrtAUihmLbRNztPrlcZqx2lH1GacZsx+y1qRRbCcJLYTtF1vKsw==}
+    peerDependencies:
+      react: ^18 || ^19
+
   '@tanstack/vue-query@5.62.1':
     resolution: {integrity: sha512-C74NSnat7F1KKspiFqz1QifmYeYpDllbgIlNxTNBquYmgNKKtmxlhOvaaeWR3h8oHal4RvVLvbnIKc1vuRmH9w==}
     peerDependencies:
@@ -1025,8 +1051,8 @@ packages:
   aws-sign@0.3.0:
     resolution: {integrity: sha512-pEMJAknifcXqXqYVXzGPIu8mJvxtJxIdpVpAs8HNS+paT+9srRUDMQn+3hULS7WbLmttcmvgMvnDcFujqXJyPw==}
 
-  axios@1.7.8:
-    resolution: {integrity: sha512-Uu0wb7KNqK2t5K+YQyVCLM76prD5sRFjKHbJYCP1J7JFGEQ6nN7HWn9+04LAeiJ3ji54lgS/gZCH1oxyrf1SPw==}
+  axios@1.7.9:
+    resolution: {integrity: sha512-LhLcE7Hbiryz8oMDdDptSrWowmB4Bl6RCt6sIJKpRB4XtVf0iEgewX3au/pJqm+Py1kCASkb/FFKjxQaLtxJvw==}
 
   bail@2.0.2:
     resolution: {integrity: sha512-0xO6mYd7JB2YesxDKplafRpsiOzPt9V02ddPCLbY1xYGPOX24NTyN50qnUxgCPcSoYMhKpAuBTjQoRZCAkUDRw==}
@@ -3188,6 +3214,21 @@ snapshots:
 
   '@tanstack/query-core@5.62.1': {}
 
+  '@tanstack/query-core@5.62.3': {}
+
+  '@tanstack/query-devtools@5.61.4': {}
+
+  '@tanstack/react-query-devtools@5.62.3(@tanstack/react-query@5.62.3(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@tanstack/query-devtools': 5.61.4
+      '@tanstack/react-query': 5.62.3(react@18.3.1)
+      react: 18.3.1
+
+  '@tanstack/react-query@5.62.3(react@18.3.1)':
+    dependencies:
+      '@tanstack/query-core': 5.62.3
+      react: 18.3.1
+
   '@tanstack/vue-query@5.62.1(vue@3.5.13(typescript@5.6.3))':
     dependencies:
       '@tanstack/match-sorter-utils': 8.19.4
@@ -3513,7 +3554,7 @@ snapshots:
 
   aws-sign@0.3.0: {}
 
-  axios@1.7.8:
+  axios@1.7.9:
     dependencies:
       follow-redirects: 1.15.9
       form-data: 4.0.1
@@ -5374,7 +5415,7 @@ snapshots:
   tanstack-query@1.0.0(@tanstack/vue-query@5.62.1(vue@3.5.13(typescript@5.6.3))):
     dependencies:
       '@tanstack/vue-query': 5.62.1(vue@3.5.13(typescript@5.6.3))
-      axios: 1.7.8
+      axios: 1.7.9
     transitivePeerDependencies:
       - debug
 

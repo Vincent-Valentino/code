@@ -9,12 +9,14 @@ import {
 } from "framer-motion";
 import { cn } from "../../lib/utils";
 
-type LinkPreviewProps = {
+type aPreviewProps = {
   children: React.ReactNode;
   url: string;
   className?: string;
   width?: number;
   height?: number;
+  quality?: number;
+  layout?: string;
 } & (
   | { isStatic: true; imageSrc: string }
   | { isStatic?: false; imageSrc?: never }
@@ -28,7 +30,7 @@ export const LinkPreview = ({
   height = 125,
   isStatic = false,
   imageSrc = "",
-}: LinkPreviewProps) => {
+}: aPreviewProps) => {
   let src;
   if (!isStatic) {
     const params = encode({
@@ -42,7 +44,7 @@ export const LinkPreview = ({
       "viewport.width": width * 3,
       "viewport.height": height * 3,
     });
-    src = `https://api.microlink.io/?${params}`;
+    src = `https://api.microa.io/?${params}`;
   } else {
     src = imageSrc;
   }
@@ -130,6 +132,7 @@ export const LinkPreview = ({
                     src={isStatic ? imageSrc : src}
                     width={width}
                     height={height}
+
                     className="rounded-lg"
                     alt="preview image"
                   />

@@ -17,6 +17,7 @@ import WhatNew from "./home/WhatNew"
 import Contact from "./home/Contact"
 import Community from "./home/Community"
 import Example from './education/components/MarkdownRenderer'
+import CourseDetails from './home/course/CourseDetails'
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +48,7 @@ export const router = createBrowserRouter([
           { path: "go", element: <Go /> },
           { path: "rust", element: <Rust /> },
           { path: "typescript", element: <Typescript /> },
+          { path: ":courseName/:courseId", element: <CourseDetails /> },
         ]
       },
       {

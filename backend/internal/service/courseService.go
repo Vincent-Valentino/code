@@ -10,7 +10,7 @@ type CourseService interface {
 	CreateCourse(ctx context.Context, course model.Course) error
 	GetCoursesByCategory(ctx context.Context, category string) ([]model.Course, error)
 	GetCourse(ctx context.Context, id string) (model.Course, error)
-	GetSubCourse(ctx context.Context, id string) (model.SubCourse, error)
+	GetSubCourse(ctx context.Context, id string, subId string) (model.SubCourse, error)
 }
 
 type courseService struct {
@@ -21,18 +21,18 @@ func NewCourseService(courseRepository repository.CourseRepository) CourseServic
 	return &courseService{courseRepository: courseRepository}
 }
 
-func (s *courseService) CreateCourse(ctx context.Context, course model.Course) error {
-	return s.courseRepository.CreateCourse(ctx, course)
+func (service *courseService) CreateCourse(ctx context.Context, course model.Course) error {
+	return service.courseRepository.CreateCourse(ctx, course)
 }
 
-func (s *courseService) GetCoursesByCategory(ctx context.Context, category string) ([]model.Course, error) {
-	return s.courseRepository.GetCoursesByCategory(ctx, category)
+func (service *courseService) GetCoursesByCategory(ctx context.Context, category string) ([]model.Course, error) {
+	return service.courseRepository.GetCoursesByCategory(ctx, category)
 }
 
-func (s *courseService) GetCourse(ctx context.Context, id string) (model.Course, error) {
-	return s.courseRepository.GetCourse(ctx, id)
+func (service *courseService) GetCourse(ctx context.Context, id string) (model.Course, error) {
+	return service.courseRepository.GetCourse(ctx, id)
 }
 
-func (s *courseService) GetSubCourse(ctx context.Context, id string) (model.SubCourse, error) {
-	return s.courseRepository.GetSubCourse(ctx, id)
+func (service *courseService) GetSubCourse(ctx context.Context, id string, subId string) (model.SubCourse, error) {
+	return service.courseRepository.GetSubCourse(ctx, id, subId)
 }

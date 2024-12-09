@@ -4,6 +4,7 @@ import (
 	"backend/internal/model"
 	"context"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -11,7 +12,7 @@ type CourseRepository interface {
 	CreateCourse(ctx context.Context, course model.Course) error
 	GetCoursesByCategory(ctx context.Context, category string) ([]model.Course, error)
 	GetCourse(ctx context.Context, id string) (model.Course, error)
-	GetSubCourse(ctx context.Context, id string) (model.SubCourse, error)
+	GetSubCourse(ctx context.Context, id string, subId string) (model.SubCourse, error)
 }
 
 type CourseManager struct {
@@ -51,12 +52,22 @@ func (manager *CourseManager) GetCourse(ctx context.Context, id string) (model.C
 	return course, nil
 }
 
-func (manager *CourseManager) GetSubCourse(ctx context.Context, id string) (model.SubCourse, error) {
-	filter := bson.M{"_id": id}
-	var subcourse model.SubCourse
-	err := manager.collection.FindOne(ctx, filter).Decode(&subcourse)
+func (manager *CourseManager) GetSubCourse(ctx context.Context, id string, subId string) (model.SubCourse, error) {
+	course, err := manager.GetCourse(ctx, id)
 	if err != nil {
 		return model.SubCourse{}, err
 	}
-	return subcourse, nil
+
+	subObjectID, err := primitive.ObjectIDFromHex(subId)
+	if err != nil {
+		return model.SubCourse{}, err
+	}
+
+	for _, subcourse := range course.Subcourses { // Corrected field name
+		if subcourse.ID == subObjectID { // Corrected ID comparison
+			return subcourse, nil
+		}
+	}
+
+	return model.SubCourse{}, mongo.ErrNoDocuments
 }

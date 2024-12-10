@@ -9,7 +9,7 @@ export default function App() {
   
   return (
     <QueryProvider>
-      <div className={`min-h-screen w-full transition-colors duration-300 ${
+      <div className={`min-h-full w-full flex flex-col transition-colors duration-300 ${
         theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'
       }`}>
         <RouterProvider router={router} />

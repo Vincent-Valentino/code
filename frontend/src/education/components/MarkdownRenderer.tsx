@@ -1,7 +1,8 @@
 import MarkdownReader from './MarkdownReader';
+import courseContentMarkdown from '../Language/Go/Go Basics/1-Introduction-To-Go.md'
 
-const Example = () => {
-  const markdown = `
+const Example = ({ demoMode = true }: { demoMode?: boolean }) => {
+  const demoMarkdown = `
 ## Basic Text Formatting
 Regular text with **bold**, *italic*, and ***bold-italic*** formatting.
 
@@ -114,7 +115,17 @@ You can include any markdown here:
 ![Example](https://via.placeholder.com/300x200)
 `;
 
-  return <MarkdownReader content={markdown} />;
+  return <MarkdownReader 
+    content={demoMode ? demoMarkdown : undefined}
+    filePath={!demoMode ? '/path/to/markdown.md' : undefined}
+  />;
 }
 
-export default Example;
+const CourseContent = () => {
+  // Use provided content/filepath or fall back to default
+  return <MarkdownReader 
+    filePath={courseContentMarkdown}
+  />;
+}
+
+export { Example, CourseContent };

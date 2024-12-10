@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import CodeBlock from './CodeBlock'
 import { cn } from '../../lib/utils'
@@ -8,6 +8,7 @@ import remarkGfm from 'remark-gfm'
 
 interface MarkdownRendererProps {
   content?: string;
+  filePath?: string;
 }
 
 // Update component props typing
@@ -33,34 +34,34 @@ const components = {
     </h1>
   ),
   h2: ({ className, children, ...props }: HeadingProps) => (
-    <h2 className={cn("scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight mt-10 first:mt-0", className)} {...props}>
+    <h2 className={cn("scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight mt-32 first:mt-0", className)} {...props}>
       {children}
     </h2>
   ),
   h3: ({ className, children, ...props }: HeadingProps) => (
-    <h3 className={cn("scroll-m-20 text-2xl font-semibold tracking-tight my-4", className)} {...props}>
+    <h3 className={cn("scroll-m-20 text-2xl font-semibold tracking-tight mt-6 -mb-3", className)} {...props}>
       {children}
     </h3>
   ),
   h4: ({ className, children, ...props }: HeadingProps) => (
-    <h4 className={cn("scroll-m-20 text-xl font-semibold tracking-tight my-3", className)} {...props}>
+    <h4 className={cn("scroll-m-20 text-xl font-semibold tracking-tight my-3 ", className)} {...props}>
       {children}
     </h4>
   ),
   // Paragraphs
   p: ({ className, children, ...props }: ParaProps) => (
-    <p className="leading-7 [&:not(:first-child)]:mt-6" {...props}>
+    <p className="leading-6 [&:not(:first-child)]:mt-6 text-base roboto-condensed mb-6" {...props}>
       {children}
     </p>
   ),
   // Lists
   ul: ({ className, children, ...props }: ListProps) => (
-    <ul className={cn("my-6 ml-6 list-disc [&>li]:mt-2", className)} {...props}>
+    <ul className={cn("mb-6 -mt-5 ml-6 list-disc [&>li]:mt-2", className)} {...props}>
       {children}
     </ul>
   ),
   ol: ({ className, children, ...props }: OrderedListProps) => (
-    <ol className={cn("my-6 ml-6 list-decimal [&>li]:mt-2", className)} {...props}>
+    <ol className={cn("mb-6 -mt-5 ml-6 list-decimal [&>li]:mt-2", className)} {...props}>
       {children}
     </ol>
   ),
@@ -179,15 +180,29 @@ const components = {
   }
 };
 
-const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
+const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, filePath }) => {
+  const [mdContent, setMdContent] = useState(content || '');
+
+  useEffect(() => {
+    if (filePath) {
+      fetch(filePath)
+        .then((response) => response.text())
+        .then((text) => setMdContent(text))
+        .catch((error) => {
+          console.error('Error fetching markdown file:', error);
+        });
+    }
+  }, [filePath]);
+
   return (
-    <div className="flex flex-col relative rounded-3xl text-xs bg-stone-50 dark:text-white dark:bg-neutral-950 w-full md:mr-10 h-[calc(100vh-120px)] md:my-10 p-6 overflow-y-auto">
+    <div className="flex flex-col relative rounded-3xl text-xs bg-stone-50 dark:text-stone-100 dark:bg-neutral-950 w-full md:mr-10 h-[calc(100vh-120px)] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-700 scrollbar-track-transparent md:my-10 p-6">
+      <div className="absolute w-[500px] h-[300px] top-0 left-2 -translate-x-1/2 bg-gradient-to-r dark:from-violet-400 dark:to-indigo-500 from-violet-200 to-indigo-200 opacity-30 blur-3xl rounded-full"></div>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw]}
         components={components}
       >
-        {content}
+        {mdContent}
       </ReactMarkdown>
     </div>
   );

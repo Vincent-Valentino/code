@@ -19,9 +19,9 @@ const Dashboard = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="relative rounded-3xl bg-white dark:text-white dark:bg-neutral-950 w-full md:mr-10 max-h-full md:my-10 p-6 shadow-md"
+      className="relative rounded-3xl bg-white dark:text-white dark:bg-neutral-950 w-full h-full md:mr-10 md:max-h-full md:my-10 p-6 shadow-md"
     >
-      <div className="absolute w-[500px] h-[300px] top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-400 to-purple-500 opacity-20 dark:opacity-30 blur-3xl rounded-full"></div>
+      <div className="absolute w-full md:w-[500px] h-[300px] top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-400 to-purple-500 opacity-20 dark:opacity-30 blur-3xl rounded-full"></div>
       <div className="relative z-10 flex items-center gap-3 mb-6">
         <MdOutlineDashboardCustomize size={24} className="text-blue-800" />
         <h1 className="text-2xl font-bold">Dashboard</h1>
@@ -35,7 +35,7 @@ const Dashboard = () => {
           </div>
         ))}
       </div>
-      <div className='grid grid-cols-3 grid-rows-1 gap-4 h-full max-h-[22rem]'>
+      <div className='grid md:grid-cols-3 md:grid-rows-1 gap-4 h-full max-h-[22rem]'>
         <motion.button 
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}

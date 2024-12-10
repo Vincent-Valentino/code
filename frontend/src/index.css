@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.roboto-condensed {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
 .suse {
 	font-family: "SUSE", sans-serif;
 }

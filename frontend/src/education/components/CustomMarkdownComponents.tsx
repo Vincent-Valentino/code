@@ -14,7 +14,7 @@ export const MdAlert = ({ children, type = 'info', className }: {
 
   return (
     <div className={cn(
-      'p-4 my-4 border-l-4 rounded',
+      'p-4 my-2 border-l-4 rounded',
       colorMap[type],
       className
     )}>
@@ -28,7 +28,7 @@ export const MdCard = ({ children, className }: {
   className?: string;
 }) => (
   <div className={cn(
-    'p-6 my-4 rounded-lg border shadow-sm bg-white dark:bg-neutral-900',
+    'p-6 my-2 rounded-lg border shadow-sm bg-white dark:bg-neutral-900',
     className
   )}>
     {children}

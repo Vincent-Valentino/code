@@ -1,141 +1,120 @@
-import MarkdownRenderer from './MarkdownReader';
+import MarkdownReader from './MarkdownReader';
 
 const Example = () => {
   const markdown = `
-  # Markdown Documentation Example
-  
-  ## Introduction
-  Welcome to our **comprehensive** documentation. Here's what you'll learn:
-  
-  ### Table of Contents
-  1. Basic Formatting
-  2. Code Examples
-  3. Tables & Lists
-  4. Custom Components
-  
-  ## Basic Formatting
-  You can write text in **bold**, *italic*, or ***both***!
-  
-  ### Links and References
-  - Regular link: [GitHub](https://github.com)
-  - Preview link: [Preview This](preview:https://example.com)
-  
-  ### Quotes and Notes
-  > Important note: This is a blockquote
-  > With multiple lines
-  
-  ## Code Examples
-  
-  Inline code: \`const x = 100;\`
-  
-  Code block with syntax highlighting:
-  
-  \`\`\`typescript
-  interface User {
-    id: string;
-    name: string;
-    email: string;
-  }
-  
-  const getUser = async (id: string): Promise<User> => {
-    const response = await fetch(\`/api/users/\${id}\`);
-    return response.json();
-  };
-  \`\`\`
-  
-  ## Tables & Lists
-  
-  ### Feature Comparison
-  | Feature | Free | Pro |
-  |---------|------|-----|
-  | Basic Access | ✅ | ✅ |
-  | Advanced Tools | ❌ | ✅ |
-  | Support | Limited | 24/7 |
-  
-  ### Task List
-  - [x] Create documentation
-  - [ ] Review content
-  - [ ] Publish changes
-  
-  ### Nested Lists
-  1. First Level
-     * Sub-item A
-     * Sub-item B
-  2. Second Level
-     1. Sub-item 2.1
-     2. Sub-item 2.2
-  
-  ## Images
-  ![React Logo](https://reactjs.org/logo-og.png)
-  
-  ---
-  
-  ## Custom Components
-  Here's a folder structure:
-  
-  <folder>
-  {
-    "name": "project",
-    "type": "folder",
-    "children": [
-      {
-        "name": "src",
-        "type": "folder",
-        "children": [
-          {
-            "name": "components",
-            "type": "folder",
-            "children": [
-              {
-                "name": "App.tsx",
-                "type": "file"
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
-  </folder>
-  
-  ### Technology Stack
-  <tech-stack>
-    <FaReact title="React" />
-    <FaNodeJs title="Node.js" />
-  </tech-stack>
-  
-  ### API Example
-  \`\`\`http
-  GET /api/users
-  Authorization: Bearer <token>
-  \`\`\`
-  
-  \`\`\`json
-  {
-    "users": [
-      {
-        "id": "1",
-        "name": "John Doe"
-      }
-    ]
-  }
-  \`\`\`
-  
-  ## Interactive Elements
-  <details>
-  <summary>Click to expand</summary>
-  This content is hidden by default!
-  </details>
-  
-  ## Math Equations
-  When \`a ≠ 0\`, there are two solutions to \`ax² + bx + c = 0\`:
-  
-  \`\`\`math
-  x = {-b ± √(b² - 4ac) \over 2a}
-  \`\`\`
-  `;
+## Basic Text Formatting
+Regular text with **bold**, *italic*, and ***bold-italic*** formatting.
 
-  return <MarkdownRenderer content={markdown} />;
+## Code Blocks
+
+Simple code block:
+
+\`\`\`js
+const greeting = "Hello World!";
+console.log(greeting);
+\`\`\`
+
+TypeScript example:
+
+\`\`\`typescript
+interface User {
+  id: number;
+  name: string;
 }
 
-export default Example
+function getUser(id: number): User {
+  return {
+    id,
+    name: "John Doe"
+  };
+}
+\`\`\`
+
+## Custom Components
+
+### Alerts
+Different alert types:
+
+<div class="alert" type="info">
+  This is an information alert
+</div>
+
+<div class="alert" type="warning">
+  This is a warning message
+</div>
+
+<div class="alert" type="error">
+  This is an error alert
+</div>
+
+### Cards
+<div class="card">
+  #### Card Title
+  This is a card component that can contain:
+  - Markdown content
+  - **Formatted text**
+  - And more!
+</div>
+
+### Badges
+<div class="badge">New</div> <div class="badge">Featured</div> <div class="badge">Popular</div>
+
+## Expandable Content
+<details>
+<summary>📋 Basic Usage</summary>
+
+1. Write your content
+2. Format it properly
+3. Preview the results
+
+\`\`\`js
+const example = "This works in details too!";
+\`\`\`
+</details>
+
+<details>
+<summary>⚙️ Advanced Settings</summary>
+
+### Configuration
+You can include any markdown here:
+
+| Setting | Value |
+|---------|-------|
+| Theme   | Dark  |
+| Mode    | Auto  |
+
+</details>
+
+
+## Tables
+| Feature | Status | Notes |
+|---------|--------|-------|
+| Markdown | ✅ | Basic syntax supported |
+| Components | ✅ | Custom elements ready |
+| Code | ✅ | With highlighting |
+
+
+## Lists
+1. First Item
+   * Nested item A
+   * Nested item B
+2. Second Item
+   1. Sub-item 2.1
+   2. Sub-item 2.2
+
+## Blockquotes
+> Important note:
+> 
+> This is a blockquote with
+> multiple lines and *formatting*
+
+---
+
+## Images
+![Example](https://via.placeholder.com/300x200)
+`;
+
+  return <MarkdownReader content={markdown} />;
+}
+
+export default Example;

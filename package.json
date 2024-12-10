@@ -1,0 +1,7 @@
+{
+	"dependencies": {
+		"@radix-ui/react-accordion": "^1.2.1",
+		"highlight.js": "^11.10.0",
+		"rehype-raw": "^7.0.0"
+	}
+}

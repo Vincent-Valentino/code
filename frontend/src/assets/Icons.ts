@@ -37,6 +37,7 @@ import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { LuSquareActivity } from "react-icons/lu";
 import { CgProfile } from "react-icons/cg";
 import { GoFileDirectory, GoFileDirectoryFill, GoFile } from "react-icons/go";
+import { FiFile, FiFolder, FiFolderPlus } from "react-icons/fi";
 
 // Export all icons
 export {
@@ -105,7 +106,12 @@ export {
   
   // Custom Icons
   FaCode,
-  CgProfile
+  CgProfile,
+
+  // Feather Icons
+  FiFile,
+  FiFolder,
+  FiFolderPlus
 };
 
 export const FolderIcon = GoFileDirectory;

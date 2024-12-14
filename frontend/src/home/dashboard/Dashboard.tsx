@@ -19,7 +19,7 @@ const Dashboard = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="relative rounded-3xl bg-white dark:text-white dark:bg-neutral-950 w-full h-full md:mr-10 md:max-h-full md:my-10 p-6 shadow-md"
+      className="relative rounded-3xl bg-white dark:text-white dark:bg-neutral-950 w-full h-auto md:mr-10 md:max-h-full md:my-10 p-6 shadow-md"
     >
       <div className="absolute w-full md:w-[500px] h-[300px] top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-400 to-purple-500 opacity-20 dark:opacity-30 blur-3xl rounded-full"></div>
       <div className="relative z-10 flex items-center gap-3 mb-6">
@@ -27,15 +27,15 @@ const Dashboard = () => {
         <h1 className="text-2xl font-bold">Dashboard</h1>
       </div>
 
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+      <div className="relative z-10 grid grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 mb-6">
         {['Courses', 'Progress', 'Achievements'].map((stat) => (
           <div key={stat} className="bg-stone-50 dark:bg-neutral-900/10 backdrop-blur-md border border-stone-200 dark:border-neutral-800/20 p-4 rounded-xl shadow-sm">
-            <h3 className="text-stone-600 dark:text-gray-400 mb-2">{stat}</h3>
+            <h3 className="text-stone-600 dark:text-gray-400 mb-2 text-xs md:text-base">{stat}</h3>
             <p className="text-2xl font-bold">0</p>
           </div>
         ))}
       </div>
-      <div className='grid md:grid-cols-3 md:grid-rows-1 gap-4 h-full max-h-[22rem]'>
+      <div className='grid md:grid-cols-3 md:grid-rows-1 gap-4 h-full md:max-h-[22rem]'>
         <motion.button 
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}

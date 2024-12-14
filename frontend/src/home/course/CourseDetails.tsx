@@ -44,7 +44,7 @@ const CourseDetails = () => {
       className="relative rounded-3xl bg-white dark:text-white dark:bg-neutral-950 w-full md:mr-10 max-h-full shadow-md h-[calc(100vh-120px)] md:my-10 p-6 overflow-y-auto scrollbar-thin scrollbar-thumb-cyan-500 scrollbar-track-transparent hover:scrollbar-thumb-cyan-600"
     >
       {/* Background gradient */}
-      <div className="absolute w-[500px] h-[300px] top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cyan-400 to-sky-500 opacity-20 blur-[100px] rounded-full" />
+      <div className="absolute w-full md:w-[500px] h-[300px] top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-cyan-400 to-sky-500 opacity-20 blur-[100px] rounded-full" />
 
       {/* Header Section */}
       <div className="relative z-10">

@@ -34,7 +34,7 @@ const SidebarMobile: React.FC = () => {
 
   return (
     <>
-      <div className={`md:hidden fixed top-0 w-full z-50 transition-all duration-300 ${
+      <div className={`md:hidden sticky top-0 w-full z-50 transition-all duration-300 ${
         isScrolled 
           ? "bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-lg" 
           : "bg-white dark:bg-black"
@@ -92,25 +92,34 @@ const SidebarMobile: React.FC = () => {
                 </button>
 
                 <div className="mt-12 flex flex-col gap-4">
-                  {/* Reuse the same navigation structure as desktop */}
-                  <button onClick={() => handleNavigation("/", "Dashboard")} className={`text-sm flex items-center ${activeSection === "Dashboard" ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-300"}`}>
+                  <button 
+                    onClick={() => handleNavigation("/", "Dashboard")} 
+                    className={`text-base flex items-center ${activeSection === "Dashboard" ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-300"}`}
+                  >
                     <MdOutlineDashboardCustomize size={18}/>
                     <p className="ml-2">Dashboard</p>
                   </button>
 
                   {/* Activity Section */}
                   <div>
-                    <button onClick={() => toggleSidebar("Activity")} className="text-sm flex items-center text-black dark:text-stone-300">
+                    <button 
+                      onClick={() => toggleSidebar("Activity")} 
+                      className="text-base flex items-center text-black dark:text-stone-300"
+                    >
                       <LuSquareActivity size={18}/>
                       <p className="ml-2">Activity</p>
                     </button>
                     {openSection === "Activity" && (
-                      <div className="ml-6 mt-2 flex flex-col gap-2">
+                      <div className="flex flex-col border-l border-gray-200 dark:border-gray-800 ml-6 mt-2">
                         {["Your Plan", "Ongoing", "History"].map((item) => (
                           <button 
                             key={item}
                             onClick={() => handleNavigation(`/activity/${item.toLowerCase().replace(" ", "")}`, item.replace(" ", ""))}
-                            className={`text-sm ${activeSection === item.replace(" ", "") ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-300"}`}
+                            className={`text-sm px-3 py-1.5 text-left hover:bg-gray-50 dark:hover:bg-gray-900 ${
+                              activeSection === item.replace(" ", "") 
+                                ? "text-blue-600 dark:text-blue-500" 
+                                : "text-black dark:text-stone-300"
+                            }`}
                           >
                             {item}
                           </button>
@@ -121,17 +130,24 @@ const SidebarMobile: React.FC = () => {
 
                   {/* Course Section */}
                   <div>
-                    <button onClick={() => toggleSidebar("Course")} className="text-sm flex items-center text-black dark:text-stone-300">
+                    <button 
+                      onClick={() => toggleSidebar("Course")} 
+                      className="text-base flex items-center text-black dark:text-stone-300"
+                    >
                       <FaCode size={18}/>
                       <p className="ml-2">Course</p>
                     </button>
                     {openSection === "Course" && (
-                      <div className="ml-6 mt-2 flex flex-col gap-2">
+                      <div className="flex flex-col border-l border-gray-200 dark:border-gray-800 ml-6 mt-2">
                         {["All Courses", "Go", "Rust", "Typescript"].map((item) => (
                           <button 
                             key={item}
                             onClick={() => handleNavigation(`/course/${item.toLowerCase().replace(" ", "")}`, item.replace(" ", ""))}
-                            className={`text-sm ${activeSection === item.replace(" ", "") ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-300"}`}
+                            className={`text-sm px-3 py-1.5 text-left hover:bg-gray-50 dark:hover:bg-gray-900 ${
+                              activeSection === item.replace(" ", "") 
+                                ? "text-blue-600 dark:text-blue-500" 
+                                : "text-black dark:text-stone-300"
+                            }`}
                           >
                             {item}
                           </button>
@@ -140,7 +156,10 @@ const SidebarMobile: React.FC = () => {
                     )}
                   </div>
 
-                  <button onClick={() => handleNavigation("/profile", "Profile")} className={`text-sm flex items-center ${activeSection === "Profile" ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-300"}`}>
+                  <button 
+                    onClick={() => handleNavigation("/profile", "Profile")} 
+                    className={`text-base flex items-center ${activeSection === "Profile" ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-300"}`}
+                  >
                     <CgProfile size={18}/>
                     <p className="ml-2">Profile</p>
                   </button>
@@ -151,7 +170,11 @@ const SidebarMobile: React.FC = () => {
                     <button 
                       key={item}
                       onClick={() => handleNavigation(`/${item.toLowerCase().replace(" ", "").replace("?", "")}`, item.replace(" ", "").replace("?", ""))}
-                      className={`text-sm ${activeSection === item.replace(" ", "").replace("?", "") ? "text-blue-600 dark:text-blue-500" : "text-black dark:text-stone-300"}`}
+                      className={`text-sm px-3 py-1.5 text-left ${
+                        activeSection === item.replace(" ", "").replace("?", "") 
+                          ? "text-blue-600 dark:text-blue-500" 
+                          : "text-black dark:text-stone-300"
+                      }`}
                     >
                       {item}
                     </button>

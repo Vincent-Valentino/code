@@ -108,7 +108,7 @@ const History = () => {
       transition={{ duration: 0.5 }}
       className="relative rounded-3xl bg-stone-50 dark:text-white dark:bg-neutral-950 w-full md:mr-10 h-[600px] md:my-10 p-6"
     >
-      <div className="absolute w-[500px] h-[300px] top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-violet-400 to-purple-500 opacity-30 blur-3xl rounded-full"></div>
+      <div className="absolute w-full md:w-[500px] h-[300px] top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-violet-400 to-purple-500 opacity-30 blur-3xl rounded-full"></div>
       <div className="relative z-10 flex items-center gap-3 mb-6">
         <h1 className="text-2xl font-bold">History</h1>
       </div>
@@ -116,27 +116,27 @@ const History = () => {
       <div className="relative z-10 space-y-4 h-[calc(100%-4rem)] overflow-y-auto scrollbar-thin scrollbar-thumb-purple-500 scrollbar-track-transparent pr-2">
         {history.map((item) => (
           <div key={item.id} 
-               className="flex items-center justify-between p-4 rounded-lg bg-white/10 dark:bg-neutral-900/10 backdrop-blur-md border border-white/20 dark:border-neutral-800/20 shadow-sm hover:shadow-md transition-all duration-200 hover:scale-[1.01] cursor-pointer"
+               className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-4 rounded-lg bg-white/10 dark:bg-neutral-900/10 backdrop-blur-md border border-white/20 dark:border-neutral-800/20 shadow-sm hover:shadow-md transition-all duration-200 hover:scale-[1.01] cursor-pointer"
           >
-            <div className="flex-1">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <h3 className="font-semibold">{item.courseName}</h3>
-                  <span className={`text-xs ${getDifficultyColor(item.difficulty)}`}>
+            <div className="flex-1 w-full">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2 sm:mb-0">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                  <h3 className="text-sm md:text-base font-semibold">{item.courseName}</h3>
+                  <span className={`text-xs ${getDifficultyColor(item.difficulty)} inline-block`}>
                     {item.difficulty}
                   </span>
                 </div>
-                <span className="text-xs text-gray-400">
+                <span className="text-xs text-gray-400 order-3 sm:order-2">
                   Last viewed: {item.lastViewed}
                 </span>
               </div>
-              <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-1">
+              <p className="text-xs text-gray-500 dark:text-gray-400 line-clamp-2 sm:line-clamp-1 mt-1 sm:mt-0">
                 {item.description}
               </p>
               <div className="flex items-center gap-2 mt-2">
-                <div className="w-full bg-gray-200 dark:bg-neutral-800 rounded-full h-2.5">
+                <div className="w-full bg-gray-200 dark:bg-neutral-800 rounded-full h-2">
                   <div 
-                    className="bg-purple-500 h-2.5 rounded-full transition-all duration-300" 
+                    className="bg-purple-500 h-2 rounded-full transition-all duration-300" 
                     style={{ width: `${(item.completedLessons / item.totalLessons) * 100}%` }}
                   ></div>
                 </div>
@@ -147,9 +147,9 @@ const History = () => {
             </div>
             <button
               onClick={() => handleDelete(item.id)}
-              className="ml-4 p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-950 rounded-full transition-colors duration-200"
+              className="absolute top-4 right-4 sm:static p-2 text-red-500 hover:bg-red-50 dark:hover:bg-red-950 rounded-full transition-colors duration-200"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m4-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
               </svg>
             </button>

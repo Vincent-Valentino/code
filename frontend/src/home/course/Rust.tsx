@@ -77,7 +77,7 @@ const Rust = () => {
       transition={{ duration: 0.5 }}
       className="relative rounded-3xl text-xs bg-stone-50 dark:text-white dark:bg-neutral-950 w-full md:mr-10 h-[calc(100vh-120px)] md:my-10 p-6 overflow-y-auto scrollbar-thin scrollbar-thumb-orange-500 scrollbar-track-transparent hover:scrollbar-thumb-orange-600"
     >
-      <div className="absolute w-[500px] h-[300px] top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-orange-400 to-red-500 opacity-30 blur-3xl rounded-full" />
+      <div className="absolute w-full md:w-[500px] h-[300px] top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-orange-400 to-red-500 opacity-30 blur-3xl rounded-full" />
       <div className="relative z-10 space-y-8">
         <div className="flex items-center gap-3">
           <h1 className="text-3xl font-bold">Rust Programming</h1>

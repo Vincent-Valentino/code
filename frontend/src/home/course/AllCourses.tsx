@@ -17,7 +17,7 @@ const AllCourses = (): JSX.Element => {
       transition={{ duration: 0.5 }}
       className="relative rounded-3xl bg-stone-50 dark:text-white dark:bg-neutral-950 w-full md:mr-10 max-h-[calc(100vh-2rem)] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-700 scrollbar-track-transparent md:my-10 p-6"
     >
-      <div className="absolute w-[500px] h-[300px] top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-400 to-indigo-500 opacity-30 blur-3xl rounded-full"></div>
+      <div className="absolute w-full md:w-[500px] h-[300px] top-0 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-400 to-indigo-500 opacity-30 blur-3xl rounded-full"></div>
       
       <div className="relative z-10 flex flex-col gap-6">
         <h1 className="text-2xl font-bold">All Courses</h1>

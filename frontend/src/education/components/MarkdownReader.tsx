@@ -195,7 +195,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, filePath }
   }, [filePath]);
 
   return (
-    <div className="flex flex-col relative rounded-3xl text-xs bg-stone-50 dark:text-stone-100 dark:bg-neutral-950 w-full md:mr-10 h-[calc(100vh-120px)] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-700 scrollbar-track-transparent md:my-10 p-6">
+    <div className="flex flex-col relative rounded-3xl text-xs bg-stone-50 dark:text-stone-100 dark:bg-neutral-950 w-full md:mr-10 h-[calc(100vh-120px)] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-700 scrollbar-track-transparent md:my-10 p-12">
       <div className="absolute w-[500px] h-[300px] top-0 left-2 -translate-x-1/2 bg-gradient-to-r dark:from-violet-400 dark:to-indigo-500 from-violet-200 to-indigo-200 opacity-30 blur-3xl rounded-full"></div>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}

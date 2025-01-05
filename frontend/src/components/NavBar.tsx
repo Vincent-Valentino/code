@@ -1,30 +1,57 @@
+import { useState, useEffect } from "react";
 import coderLogo from "../../public/logo/black_logo_only.png";
 import { navigation, getIn } from "../constants/index.ts";
 import { FaSearch } from "react-icons/fa";
 import FlyOutMenu from "./FlyOutMenu.tsx";
 
 const NavBar = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      if (offset > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="flex justify-between items-center fixed top-0 left-0 w-full h-[85px] z-50 border bg-zinc-50/10">
+    <div
+      className={`flex justify-between items-center fixed top-0 left-0 w-full h-[85px] z-[999] transition-all duration-300 ${
+        scrolled ? "bg-zinc-50/95 backdrop-blur-sm shadow-md" : "bg-transparent"
+      }`}>
       {/* Left side (Logo, Search Box, and Navigation links) */}
       <div className="flex justify-between items-center w-full px-5">
         {/* Logo */}
-        <a className=" w-[12rem] flex items-center">
-          <img src={coderLogo} width={120} alt="Coder" className="mb-0" />
+        <a className="flex items-center">
+          <img
+            src={coderLogo}
+            width={120}
+            alt="Coder"
+            className="mb-0 pt-2 hover:cursor-pointer"
+          />
         </a>
 
         {/* Search Box */}
-        <div className="relative ml-4 border border-gray-400 rounded-md">
+        <div className="relative ml-2 border border-gray-400 rounded-md flex-grow max-w-md">
           <input
             type="text"
-            placeholder="Search Here..."
-            className="px-4 py-2 pl-10 rounded-md bg-neutral-10 focus:outline-gray-600"
+            placeholder="Search Course..."
+            className="w-full px-4 py-2 pl-10 rounded-md bg-neutral-10 focus:outline-gray-600"
           />
           <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
         </div>
 
         {/* Main Navigation Links (Centered) */}
-        <nav className="relative flex items-center flex-grow justify-center">
+        <nav className="relative flex items-center flex-grow justify-center mx-4">
           {navigation.map((item) => (
             <div key={item.id} className="relative group">
               <a
